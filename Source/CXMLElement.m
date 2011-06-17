@@ -176,12 +176,12 @@ return(theAttributes);
 
 - (CXMLNode *)namespaceForPrefix:(NSString *)name
 {
-	const xmlChar *thePrefix = (const xmlChar *)[name UTF8String];
+	const xmlChar *prefix = (const xmlChar *)[name UTF8String];
 	xmlNsPtr theCurrentNamespace = _node->nsDef;
 	
 	while (theCurrentNamespace != NULL)
 	{
-		if (xmlStrcmp(theCurrentNamespace->prefix, thePrefix) == 0)
+		if (xmlStrcmp(theCurrentNamespace->prefix, prefix) == 0)
 		{
 			NSString *thePrefix = theCurrentNamespace->prefix ? [NSString stringWithUTF8String:(const char *)theCurrentNamespace->prefix] : @"";
 			NSString *theURI = [NSString stringWithUTF8String:(const char *)theCurrentNamespace->href];
